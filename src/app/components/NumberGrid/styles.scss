@@ -22,13 +22,17 @@
 }
 
 .number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
   background-color: $light-100;
   border: 1px solid $light-400;
-  padding: 10px;
-  text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border-radius: 4px;
+  border-radius: 50%;
+  aspect-ratio: 1;
 }
 
 .selected {

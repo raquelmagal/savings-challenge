@@ -116,7 +116,7 @@ export default function NumberGrid() {
           </Select>
         </FormControl>
         <div className='total-sum'>
-          <span>Valor depositado: {formatCurrency(totalSum)}</span>
+          <span className='body-l-bold'>Valor depositado: {formatCurrency(totalSum)}</span>
         </div>
       </div>
       <div className='grid'>
