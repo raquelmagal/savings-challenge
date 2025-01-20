@@ -1,14 +1,15 @@
 @import '@/app/globals.scss';
 
 .theme-selector-container {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-width: 80px;
 }
 
 .theme-circle {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   cursor: pointer;
 
@@ -34,5 +35,12 @@
 
   &.active {
     box-shadow: 0 0 0 2px $light-300;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-circle {
+    width: 10px;
+    height: 10px;
   }
 }
