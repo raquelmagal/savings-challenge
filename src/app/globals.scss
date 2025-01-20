@@ -1,0 +1,60 @@
+@import "bootstrap/scss/bootstrap";
+@import './theme.scss';
+
+.MuiFormControl-root {
+  border: none !important;
+}
+
+.MuiTextField-root .MuiInputLabel-root {
+  padding: 4px 8px !important;
+}
+
+.MuiInputLabel-root {
+  font-family: $primary-font !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 150% !important;
+}
+
+input {
+  height: 30px !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 4px 0 5px 6px !important;
+  background-color: transparent !important;
+}
+
+.savings-title {
+  font-size: 32px;
+  text-align: center;
+  margin: 64px 0;
+  color: $default-500;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--theme-500) !important;
+}
+
+.MuiButton-root.Mui-disabled {
+  background-color: $default-200 !important;
+  cursor: not-allowed !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}

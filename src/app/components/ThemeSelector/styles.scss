@@ -1,0 +1,38 @@
+@import '@/app/globals.scss';
+
+.theme-selector-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.theme-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &.theme-default {
+    background-color: $default-500;
+  }
+
+  &.theme-pink {
+    background-color: $pink-300;
+  }
+
+  &.theme-blue {
+    background-color: $blue-300;
+  }
+
+  &.theme-green {
+    background-color: $green-300;
+  }
+
+  &.theme-light {
+    background-color: $light-300;
+  }
+
+  &.active {
+    box-shadow: 0 0 0 2px $light-300;
+  }
+}

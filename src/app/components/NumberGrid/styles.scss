@@ -1,0 +1,82 @@
+@import '@/app/globals.scss';
+
+.number-grid-container {
+  padding: 20px;
+  width: 80%;
+  background-color: $light-100;
+}
+
+.number-grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 30%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 8px;
+  margin: 20px auto 0;
+}
+
+.number {
+  background-color: $light-100;
+  border: 1px solid $light-400;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.selected {
+  background-color: var(--theme-300);
+  border-color: var(--theme-200);
+  color: var(--theme-100);
+}
+
+.number {
+  &:hover {
+    background-color: var(--theme-400);
+    border-color: var(--theme-400);
+    color: var(--theme-100);
+  }
+}
+
+.total-sum {
+  font-size: 20px;
+}
+
+:global {
+  .MuiFormControl-root {
+    .MuiOutlinedInput-root {
+      &.Mui-focused fieldset {
+        border-color: var(--theme-300);
+      }
+      
+      &:hover fieldset {
+        border-color: var(--theme-400);
+      }
+    }
+
+    .MuiInputLabel-root.Mui-focused {
+      color: var(--theme-300);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .qtd-form-control {
+    width: 40%;
+  }
+
+  .total-sum {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    width: 40%;
+    font-size: 16px;
+  }
+}

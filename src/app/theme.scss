@@ -1,0 +1,295 @@
+$font-family-base: "Roboto", Helvetica, sans-serif;
+$headings-font-family: "Roboto", Helvetica, sans-serif;
+$btn-font-family: "Roboto", Helvetica, sans-serif;
+$primary-font: "Roboto", Helvetica, sans-serif;
+$font-size-base: 0.95rem;
+
+// Colors
+
+$default-100: #F5F5F5;
+$default-200: #E0E0E0;
+$default-300: #4CAF50;
+$default-400: #C44079;
+$default-500: #212121;
+
+$pink-100: #FEF6FA;
+$pink-200: #F6A2C6;
+$pink-300: #EE4D93;
+$pink-400: #C44079;
+$pink-500: #712546;
+
+$blue-100: #F3F7FF;
+$blue-200: #79A7FF;
+$blue-300: #2054bc;
+$blue-400: #06348C;
+$blue-500: #031E53;
+
+$green-100: #F4FCF8;
+$green-200: #20C473;
+$green-300: #299a64;
+$green-400: #09763f;
+$green-500: #0F5D37;
+
+$light-100: #fff;
+$light-200: #f8f8f8;
+$light-300: #bdbdbd;
+$light-400: #7d7c85;
+$light-500: #5c5b63;
+
+// Theme palette
+
+$theme-default-100: $default-100;
+$theme-default-200: $default-200;
+$theme-default-300: $default-300;
+$theme-default-400: $default-400;
+$theme-default-500: $default-500;
+
+$theme-pink-100: $pink-100;
+$theme-pink-200: $pink-200;
+$theme-pink-300: $pink-300;
+$theme-pink-400: $pink-400;
+$theme-pink-500: $pink-500;
+
+$theme-blue-100: $blue-100;
+$theme-blue-200: $blue-200;
+$theme-blue-300: $blue-300;
+$theme-blue-400: $blue-400;
+$theme-blue-500: $blue-500;
+
+$theme-green-100: $green-100;
+$theme-green-200: $green-200;
+$theme-green-300: $green-300;
+$theme-green-400: $green-400;
+$theme-green-500: $green-500;
+
+$theme-light-100: $light-100;
+$theme-light-200: $light-200;
+$theme-light-300: $light-300;
+$theme-light-400: $light-400;
+$theme-light-500: $light-500;
+
+:root {
+  --theme-100: #{$theme-default-100};
+  --theme-200: #{$theme-default-200};
+  --theme-300: #{$theme-default-300};
+  --theme-400: #{$theme-default-400};
+  --theme-500: #{$theme-default-500};
+}
+
+body.theme-default {
+  --theme-100: #{$theme-default-100};
+  --theme-200: #{$theme-default-200};
+  --theme-300: #{$theme-default-300};
+  --theme-400: #{$theme-default-400};
+  --theme-500: #{$theme-default-500};
+}
+
+body.theme-pink {
+  --theme-100: #{$theme-pink-100};
+  --theme-200: #{$theme-pink-200};
+  --theme-300: #{$theme-pink-300};
+  --theme-400: #{$theme-pink-400};
+  --theme-500: #{$theme-pink-500};
+}
+
+body.theme-blue {
+  --theme-100: #{$theme-blue-100};
+  --theme-200: #{$theme-blue-200};
+  --theme-300: #{$theme-blue-300};
+  --theme-400: #{$theme-blue-400};
+  --theme-500: #{$theme-blue-500};
+}
+
+body.theme-green {
+  --theme-100: #{$theme-green-100};
+  --theme-200: #{$theme-green-200};
+  --theme-300: #{$theme-green-300};
+  --theme-400: #{$theme-green-400};
+  --theme-500: #{$theme-green-500};
+}
+
+body.theme-light {
+  --theme-100: #{$theme-light-100};
+  --theme-200: #{$theme-light-200};
+  --theme-300: #{$theme-light-300};
+  --theme-400: #{$theme-light-400};
+  --theme-500: #{$theme-light-500};
+}
+
+// Typography
+
+.h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 78px;
+  font-family: $primary-font;
+}
+
+.h2 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 65px;
+  font-family: $primary-font;
+}
+
+.h3 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 57.2px;
+  font-family: $primary-font;
+}
+
+.h4 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 44.2px;
+  font-family: $primary-font;
+}
+
+.h5 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31.2px;
+  font-family: $primary-font;
+}
+
+.h6 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31.2px;
+  font-family: $primary-font;
+}
+
+.subtitle-l {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 130%;
+}
+
+.subtitle-m {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 130%;
+}
+
+.subtitle-s {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 130%;
+}
+
+.body-l-normal {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.body-l-medium {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.body-l-bold {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.body-m-normal {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.body-m-medium {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.body-m-bold {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.body-s-normal {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.body-s-medium {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.body-s-bold {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.body-xs-medium {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.content-heading-l {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+}
+
+.content-heading-m {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+}
+
+.content-heading-s {
+  font-family: $primary-font;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+@import 'bootstrap/scss/bootstrap.scss';
