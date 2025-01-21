@@ -17,12 +17,12 @@ export default function ResetPassword() {
   const [isLoading, setIsLoading] = useState(false);
   const [passwordError, setPasswordError] = useState('');
 
+  const { user, setUser } = useAuth();
+
   const { register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm<ResetPasswordSchema>({
-    resolver: zodResolver(resetPasswordSchema),
+    resolver: zodResolver(resetPasswordSchema(!!user)),
     mode: 'onChange'
   });
-
-  const { user, setUser } = useAuth();
 
   const router = useRouter();
 
@@ -31,7 +31,7 @@ export default function ResetPassword() {
     setIsLoading(true);
 
     try {
-      const response = await UserService.resetPassword(data);
+      const response = !!user ? await UserService.resetPassword(data) : await UserService.forgotPassword(data);
       setUser(response.user);
 
       toast.success('Senha atualizada com sucesso!', { id: 'reset-password' });
@@ -71,16 +71,20 @@ export default function ResetPassword() {
           helperText={errors.email?.message}
           className="mb-3 p-2 rounded w-full"
         />
-        <TextField
-          type="password"
-          variant='standard'
-          placeholder="Senha atual"
-          {...register('password')}
-          error={!!errors.password || !!passwordError}
-          helperText={errors.password?.message || passwordError}
-          className="mb-3 p-2 rounded w-full"
-          onChange={() => setPasswordError('')}
-        />
+        {
+          !!user && (
+            <TextField
+              type="password"
+              variant='standard'
+              placeholder="Senha atual"
+              {...register('password')}
+              error={!!errors.password || !!passwordError}
+              helperText={errors.password?.message || passwordError}
+              className="mb-3 p-2 rounded w-full"
+              onChange={() => setPasswordError('')}
+            />
+          )
+        }
         <TextField
           type="password"
           variant='standard'

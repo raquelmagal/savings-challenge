@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   }
 
   const token = request.cookies.get('token');
-  const publicRoutes = ['/api/auth/login', '/api/auth/register', '/api/auth/reset-password'];
+  const publicRoutes = ['/api/auth/login', '/api/auth/register', '/api/auth/reset-password', '/api/auth/forgot-password'];
   
   if (!token && !publicRoutes.includes(request.nextUrl.pathname)) {
     return NextResponse.redirect(new URL('/auth/login', request.url));

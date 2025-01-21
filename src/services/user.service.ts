@@ -11,7 +11,12 @@ interface UserLogin {
 
 interface UserResetPassword {
   email: string;
-  password: string;
+  password?: string;
+  newPassword: string;
+}
+
+interface UserForgotPassword {
+  email: string;
   newPassword: string;
 }
 
@@ -121,6 +126,29 @@ export const UserService = {
   async resetPassword(user: UserResetPassword) {
     try {
       const response = await fetch('/api/auth/reset-password', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Erro ao atualizar senha, tente novamente');
+      }
+
+      return data;
+
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  async forgotPassword(user: UserForgotPassword) {
+    try {
+      const response = await fetch('/api/auth/forgot-password', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
