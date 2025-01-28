@@ -5,9 +5,9 @@ import bcrypt from 'bcryptjs';
 
 export async function POST(request: Request) {
   try {
-    const { email, newPassword } = await request.json();
+    const { email, password, newPassword } = await request.json();
 
-    if (!email || !newPassword) {
+    if (!email || !password || !newPassword) {
       return NextResponse.json(
         { message: 'Preencha todos os campos, por favor.' },
         { status: 400 }
@@ -22,6 +22,24 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { message: 'Usuário não encontrado' },
         { status: 404 }
+      );
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+  
+    if (!isPasswordValid) {
+      return NextResponse.json(
+        { message: 'Senha atual incorreta' },
+        { status: 400 }
+      );
+    }
+
+    const isSamePassword = await bcrypt.compare(newPassword, user.password);
+    
+    if (isSamePassword) {
+      return NextResponse.json(
+        { message: 'A nova senha deve ser diferente da senha atual' },
+        { status: 400 }
       );
     }
 

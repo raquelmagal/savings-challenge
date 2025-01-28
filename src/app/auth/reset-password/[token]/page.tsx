@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button, CircularProgress, FormControl, Link, TextField } from '@mui/material';
+import { useParams, useRouter } from 'next/navigation';
+import { Button, CircularProgress, FormControl, TextField } from '@mui/material';
 import { UserService } from '@/services';
 import toast from 'react-hot-toast';
 import { useAuth } from '@/contexts/AuthContext';
@@ -20,18 +20,21 @@ export default function ResetPassword() {
   const { user, setUser } = useAuth();
 
   const { register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm<ResetPasswordSchema>({
-    resolver: zodResolver(resetPasswordSchema(!!user)),
+    resolver: zodResolver(resetPasswordSchema),
     mode: 'onChange'
   });
 
   const router = useRouter();
+  const params = useParams();
+
+  const token = params.token;
 
   const onSubmit = async (data: ResetPasswordSchema) => {
 
     setIsLoading(true);
 
     try {
-      const response = !!user ? await UserService.resetPassword(data) : await UserService.forgotPassword(data);
+      const response = await UserService.resetPassword({ ...data, token: token as string });
       setUser(response.user);
 
       toast.success('Senha atualizada com sucesso!', { id: 'reset-password' });
@@ -49,7 +52,7 @@ export default function ResetPassword() {
   };
 
   const goBack = () => {
-    router.back();
+    token ? router.push('/auth/login') : router.back();
   }
 
   return (
@@ -63,35 +66,22 @@ export default function ResetPassword() {
       <FormControl className="form-container">
         <p className="form-title">Atualizar senha</p>
         <TextField
-          type="email"
-          variant='standard'
-          placeholder="Email"
-          {...register('email')}
-          error={!!errors.email}
-          helperText={errors.email?.message}
-          className="mb-3 p-2 rounded w-full"
-        />
-        {
-          !!user && (
-            <TextField
-              type="password"
-              variant='standard'
-              placeholder="Senha atual"
-              {...register('password')}
-              error={!!errors.password || !!passwordError}
-              helperText={errors.password?.message || passwordError}
-              className="mb-3 p-2 rounded w-full"
-              onChange={() => setPasswordError('')}
-            />
-          )
-        }
-        <TextField
           type="password"
           variant='standard'
           placeholder="Nova senha"
-          {...register('newPassword')}
-          error={!!errors.newPassword}
-          helperText={errors.newPassword?.message}
+          {...register('password')}
+          error={!!errors.password || !!passwordError}
+          helperText={errors.password?.message || passwordError}
+          className="mb-3 p-2 rounded w-full"
+          onChange={() => setPasswordError('')}
+        />
+        <TextField
+          type="password"
+          variant='standard'
+          placeholder="Confirmar nova senha"
+          {...register('confirmPassword')}
+          error={!!errors.confirmPassword}
+          helperText={errors.confirmPassword?.message}
           className="mb-5 p-2 rounded w-full"
         />
         <div className="d-flex align-items-center justify-content-between p-2">

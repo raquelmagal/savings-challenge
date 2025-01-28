@@ -66,7 +66,7 @@ export default function Login() {
           className="mb-3 p-2 rounded w-full"
         />
         <span className="tip-wrapper p-2">
-          <Link href="/auth/reset-password" className="tip-link body-s-bold">Esqueci minha senha</Link>
+          <Link href="/auth/send-reset-password-email" className="tip-link body-s-bold">Esqueci minha senha</Link>
         </span>
         <span className="tip-wrapper mb-5 p-2">Não tem uma conta?
           <Link href="/auth/register" className="tip-link body-s-bold">Cadastre-se</Link>

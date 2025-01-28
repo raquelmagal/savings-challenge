@@ -33,6 +33,14 @@ const userSchema = new Schema({
   theme: {
     type: String,
     default: 'default'
+  },
+  resetToken: {
+    type: String,
+    default: null
+  },
+  resetTokenExpiry: {
+    type: Date,
+    default: null
   }
 }, {
   timestamps: true

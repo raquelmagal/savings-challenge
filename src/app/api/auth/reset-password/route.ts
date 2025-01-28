@@ -5,49 +5,45 @@ import bcrypt from 'bcryptjs';
 
 export async function POST(request: Request) {
   try {
-    const { email, password, newPassword } = await request.json();
+    const { password, confirmPassword, token } = await request.json();
 
-    if (!email || !password || !newPassword) {
+    if (!token) {
+      return NextResponse.json(
+        { message: 'Token inválido ou expirado' },
+        { status: 400 }
+      );
+    }
+
+    if (!password || !confirmPassword) {
       return NextResponse.json(
         { message: 'Preencha todos os campos, por favor.' },
         { status: 400 }
       );
     }
-    
+
     await dbConnect();
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({
+      resetToken: token,
+      resetTokenExpiry: { $gt: new Date() } // Verify if the token is not expired
+    });
 
     if (!user) {
       return NextResponse.json(
-        { message: 'Usuário não encontrado' },
-        { status: 404 }
-      );
-    }
-
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    
-    if (!isPasswordValid) {
-      return NextResponse.json(
-        { message: 'Senha atual incorreta' },
+        { message: 'Token inválido ou expirado' },
         { status: 400 }
       );
     }
 
-    const isSamePassword = await bcrypt.compare(newPassword, user.password);
-    
-    if (isSamePassword) {
-      return NextResponse.json(
-        { message: 'A nova senha deve ser diferente da senha atual' },
-        { status: 400 }
-      );
-    }
-
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    const hashedPassword = await bcrypt.hash(confirmPassword, 10);
 
     await User.updateOne(
-      { email },
-      { password: hashedPassword }
+      { _id: user._id },
+      {
+        password: hashedPassword,
+        resetToken: null,
+        resetTokenExpiry: null
+      }
     );
 
     return NextResponse.json(

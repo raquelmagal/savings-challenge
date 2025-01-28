@@ -32,8 +32,8 @@ export default function HeaderDashboard() {
     }
   };
 
-  const navigateToResetPassword = () => {
-    router.push('/auth/reset-password');
+  const navigateToChangePassword = () => {
+    router.push('/auth/change-password');
   }
 
   return (
@@ -49,7 +49,7 @@ export default function HeaderDashboard() {
           </div>
           {isMenuOpen && (
             <div className='menu-dropdown'>
-              <div className='menu-item' onClick={navigateToResetPassword}>
+              <div className='menu-item' onClick={navigateToChangePassword}>
                 <Person />
                 <span>{user?.name}</span>
               </div>

@@ -10,14 +10,19 @@ interface UserLogin {
 }
 
 interface UserResetPassword {
+  password: string;
+  confirmPassword: string;
+  token: string;
+}
+
+interface UserChangePassword {
   email: string;
-  password?: string;
+  password: string;
   newPassword: string;
 }
 
 interface UserForgotPassword {
   email: string;
-  newPassword: string;
 }
 
 export const UserService = {
@@ -146,9 +151,32 @@ export const UserService = {
     }
   },
 
-  async forgotPassword(user: UserForgotPassword) {
+  async changePassword(user: UserChangePassword) {
     try {
-      const response = await fetch('/api/auth/forgot-password', {
+      const response = await fetch('/api/auth/change-password', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Erro ao atualizar senha, tente novamente');
+      }
+
+      return data;
+
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  async sendResetPasswordEmail(user: UserForgotPassword) {
+    try {
+      const response = await fetch('/api/auth/send-reset-password-email', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',
