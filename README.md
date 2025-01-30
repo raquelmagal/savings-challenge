@@ -22,44 +22,56 @@ Se você escolher o desafio de 50 depósitos, seu objetivo será fazer depósito
 
 ## 📸 Screenshots
 
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div align="center">
   <img src="./public/screenshots/login.png" alt="Login" width="700"/>
-  <em>Login</em>
+  <div>
+    <em>Login</em>
+  </div>
 </div>
 
 <br/>
 
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div align="center">
   <img src="./public/screenshots/signup.png" alt="Cadastro" width="700"/>
-  <em>Cadastro</em>
+  <div>
+    <em>Cadastro</em>
+  </div>
 </div>
 
 <br/>
 
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div align="center">
   <img src="./public/screenshots/forgot-password.png" alt="Recuperar Senha" width="700"/>
-  <em>Recuperar Senha</em>
+  <div>
+    <em>Recuperar Senha</em>
+  </div>
 </div>
 
 <br/>
 
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div align="center">
   <img src="./public/screenshots/dashboard-default.png" alt="Tela Principal" width="700"/>
-  <em>Tela Principal</em>
+  <div>
+    <em>Tela Principal</em>
+  </div>
 </div>
 
 <br/>
 
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div align="center">
   <img src="./public/screenshots/dashboard-pink.png" alt="Dashboard Pink" width="700"/>
-  <em>Tela Principal - Tema Pink</em>
+  <div>
+    <em>Tela Principal - Tema Pink</em>
+  </div>
 </div>
 
 <br/>
 
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div align="center">
   <img src="./public/screenshots/dashboard-neutral.png" alt="Dashboard Neutral" width="700"/>
-  <em>Tela Principal - Tema Neutral</em>
+  <div>
+    <em>Tela Principal - Tema Neutral</em>
+  </div>
 </div>
 
 ## 🛠️ Tecnologias Utilizadas
