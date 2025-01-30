@@ -29,35 +29,35 @@ Se você escolher o desafio de 50 depósitos, seu objetivo será fazer depósito
 
 <br/>
 
-<div align="center">
+<div class="d-flex justify-content-center align-items-center">
   <img src="./public/screenshots/login.png" alt="Login" width="700"/>
   <em>Login</em>
 </div>
 
 <br/>
 
-<div align="center">
+<div class="d-flex justify-content-center align-items-center">
   <img src="./public/screenshots/signup.png" alt="Cadastro" width="700"/>
   <em>Cadastro</em>
 </div>
 
 <br/>
 
-<div align="center">
+<div class="d-flex justify-content-center align-items-center">
   <img src="./public/screenshots/forgot-password.png" alt="Recuperar Senha" width="700"/>
   <em>Recuperar Senha</em>
 </div>
 
 <br/>
 
-<div align="center">
+<div class="d-flex justify-content-center align-items-center">
   <img src="./public/screenshots/dashboard-pink.png" alt="Dashboard Pink" width="700"/>
   <em>Tela Principal - Tema Pink</em>
 </div>
 
 <br/>
 
-<div align="center">
+<div class="d-flex justify-content-center align-items-center">
   <img src="./public/screenshots/dashboard-neutral.png" alt="Dashboard Neutral" width="700"/>
   <em>Tela Principal - Tema Neutral</em>
 </div>
