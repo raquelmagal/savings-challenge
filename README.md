@@ -59,18 +59,18 @@ Se você escolher o desafio de 50 depósitos, seu objetivo será fazer depósito
 <br/>
 
 <div align="center">
-  <img src="./public/screenshots/dashboard-pink.png" alt="Dashboard Pink" width="700"/>
+  <img src="./public/screenshots/dashboard-pink.png" alt="Tela Principal - Tema Rosa" width="700"/>
   <div>
-    <em>Tela Principal - Tema Pink</em>
+    <em>Tela Principal - Tema Rosa</em>
   </div>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="./public/screenshots/dashboard-neutral.png" alt="Dashboard Neutral" width="700"/>
+  <img src="./public/screenshots/dashboard-neutral.png" alt="Tela Principal - Tema Neutro" width="700"/>
   <div>
-    <em>Tela Principal - Tema Neutral</em>
+    <em>Tela Principal - Tema Neutro</em>
   </div>
 </div>
 
