@@ -1,7 +1,7 @@
 'use client';
 
-import HeaderDashboard from '@/app/components/HeaderDashboard';
-import NumberGrid from '@/app/components/NumberGrid';
+import HeaderDashboard from '@/app/presentational/HeaderDashboard';
+import NumberGrid from '@/app/presentational/NumberGrid';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { useEffect } from 'react';

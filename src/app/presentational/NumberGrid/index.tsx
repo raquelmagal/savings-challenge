@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react';
 import { FormControl, InputLabel, MenuItem, SelectChangeEvent } from '@mui/material';
 import { Select } from '@mui/material';
 import { QtdNumbersService, NumberService } from '@/services';
@@ -15,7 +15,7 @@ export default function NumberGrid() {
   const [qtd, setQtd] = useState<number>(250);
   const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]);
 
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
 
   const router = useRouter();
 
@@ -91,10 +91,18 @@ export default function NumberGrid() {
   useEffect(() => {
     if (!user) {
       router.push('/auth/login');
+      return;
     }
 
     loadNumbers();
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      const percentage = (selectedNumbers.length / qtd) * 100;
+      setUser({ ...user, percentage });
+    }
+  }, [selectedNumbers, qtd]);
 
   return (
     <div className='number-grid-container'>

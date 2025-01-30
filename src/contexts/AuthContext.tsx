@@ -10,6 +10,7 @@ interface User {
   name: string;
   email: string;
   theme: 'default' | 'pink' | 'blue' | 'green' | 'light';
+  percentage: number;
 }
 
 interface AuthContextType {
@@ -34,7 +35,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         
         if (!user) {
           const { user: sessionUser } = await UserService.checkSession();
-          setUser(sessionUser);
+
+          const percentage = (sessionUser.selected_numbers.length / sessionUser.qtdNumbers) * 100;
+
+          setUser({ ...sessionUser, percentage });
           
           if (publicRoutes.includes(pathname)) {
             router.push('/dashboard');

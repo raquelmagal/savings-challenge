@@ -1,12 +1,17 @@
 @import '@/app/globals.scss';
 
 .header-dashboard-container {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 40px;
+}
+
+.header-dashboard-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 90px;
-  margin-bottom: 40px;
   padding: 24px;
   gap: 8px;
   background-color: var(--theme-100);

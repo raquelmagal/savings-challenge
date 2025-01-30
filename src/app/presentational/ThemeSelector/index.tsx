@@ -4,9 +4,9 @@ import { themeColors } from '@/app/constants/themeColors';
 import { ThemePalette, useTheme } from '@/contexts/ThemeContext';
 import { ThemeSelectorService } from '@/services';
 import { useAuth } from '@/contexts/AuthContext';
+import toast from 'react-hot-toast';
 
 import './styles.scss';
-import toast from 'react-hot-toast';
 
 export function ThemeSelector() {
   const { user } = useAuth();
